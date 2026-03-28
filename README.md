@@ -2,8 +2,9 @@
 
 A real-time, high-performance analytics dashboard built for eCommerce store owners. Designed to handle high-volume event streams (1,000,000+ events) with sub-10ms query performance through advanced SQL optimization and backend caching.
 
-## 📺 Demo Video
-[Watch the Dashboard Demonstration](https://youtu.be/gU-kXujM1oE)
+## 📺 Project Live
+- **Live Dashboard**: [https://amboras-assigment-uhuu.vercel.app/](https://amboras-assigment-uhuu.vercel.app/)
+- **Demo Video**: [Watch the Dashboard Demonstration](https://youtu.be/gU-kXujM1oE)
 
 ## 🚀 Setup Instructions
 
