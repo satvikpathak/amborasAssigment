@@ -11,15 +11,20 @@ export const PUSHER_CLIENT = 'PUSHER_CLIENT';
       provide: PUSHER_CLIENT,
       useFactory: (configService: ConfigService) => {
         const appId = configService.get<string>('PUSHER_APP_ID');
-        if (!appId) {
-          console.warn('⚠️  Pusher not configured — real-time features disabled');
+        const key = configService.get<string>('PUSHER_KEY');
+        const secret = configService.get<string>('PUSHER_SECRET');
+        const cluster = configService.get<string>('PUSHER_CLUSTER', 'us2');
+
+        if (!appId || !key || !secret) {
+          console.warn('⚠️  Pusher not fully configured — real-time features disabled');
           return null;
         }
+
         return new Pusher({
           appId,
-          key: configService.getOrThrow<string>('PUSHER_KEY'),
-          secret: configService.getOrThrow<string>('PUSHER_SECRET'),
-          cluster: configService.get<string>('PUSHER_CLUSTER', 'us2'),
+          key,
+          secret,
+          cluster,
           useTLS: true,
         });
       },

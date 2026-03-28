@@ -10,7 +10,13 @@ export async function fetcher<T>(args: string | [string, string]): Promise<Fetch
   const storeId = typeof args === 'string' ? (localStorage.getItem('amboras_store_id') || 'store_001') : args[1];
 
   const start = performance.now();
-  const res = await fetch(`${API_BASE}${url}`, {
+  
+  // Robust URL joining
+  const baseUrl = API_BASE.endsWith('/') ? API_BASE.slice(0, -1) : API_BASE;
+  const path = url.startsWith('/') ? url : `/${url}`;
+  const finalUrl = `${baseUrl}${path}`;
+
+  const res = await fetch(finalUrl, {
     headers: {
       'x-store-id': storeId,
       'Content-Type': 'application/json',
