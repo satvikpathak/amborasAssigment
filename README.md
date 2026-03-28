@@ -1,15 +1,14 @@
-# Store Analytics Dashboard — Amboras Take-Home
+# Store Analytics Dashboard
 
 A real-time, high-performance analytics dashboard built for eCommerce store owners. Designed to handle high-volume event streams (1,000,000+ events) with sub-10ms query performance through advanced SQL optimization and backend caching.
 
-## 📁 Repository Structure
-- `backend/`: NestJS API for event ingestion, real-time Pusher integration, and high-performance SQL analytics.
-- `frontend/`: Next.js 14 dashboard with professional-grade visualizations, mobile-responsive layout, and client-side route protection.
+## 📺 Demo Video
+[Watch the Dashboard Demonstration](https://youtu.be/gU-kXujM1oE)
 
-## 🚀 Quick Start
+## 🚀 Setup Instructions
 
 ### 1. Database Setup
-The dashboard uses **Neon.tech (PostgreSQL)** for serverless performance.
+The dashboard uses **Neon.tech (Postgres)** for serverless performance.
 ```bash
 cd backend
 npm install
@@ -32,36 +31,39 @@ npm run dev
 ```
 Open `http://localhost:3000` (Login: `amboras@demo.com` / `demo`).
 
-## � One-Click Vercel Deployment
+---
 
-This project is pre-configured for a seamless monorepo deployment on Vercel.
+## 🏗️ Architecture Decisions
 
-### 1. Deploy Backend (NestJS Serverless)
-1. Import the repository to Vercel as a **new project**.
-2. Set **Root Directory** to `backend`.
-3. The included `backend/vercel.json` and `backend/api/index.ts` will automatically bridge NestJS to Vercel Serverless.
-4. Add **Environment Variables**:
-   - `DATABASE_URL`: Your Neon/Postgres connection string.
-   - `PUSHER_APP_ID`, `PUSHER_KEY`, `PUSHER_SECRET`, `PUSHER_CLUSTER`: Your Pusher credentials.
-5. **Deploy**. Note your backend URL (e.g., `https://amboras-api.vercel.app`).
+### Data Aggregation Strategy
+- **Decision**: Single-Query Common Table Expression (CTE) for whole-store snapshots.
+- **Why**: Instead of running 10 separate queries for different metrics, one CTE allows the database engine to optimize the scan path once, significantly reducing I/O and CPU overhead.
+- **Trade-offs**: Slightly more complex SQL maintenance, but gains massive performance and atomic consistency (all metrics reflect the exact same point-in-time state).
 
-### 2. Deploy Frontend (Next.js)
-1. Import the repository to Vercel as a **second new project**.
-2. Set **Root Directory** to `frontend`.
-3. Add **Environment Variables**:
-   - `NEXT_PUBLIC_API_URL`: `[YOUR_BACKEND_URL]/api/v1`
-   - `NEXT_PUBLIC_PUSHER_KEY`: Your Pusher Key.
-   - `NEXT_PUBLIC_PUSHER_CLUSTER`: Your Pusher Cluster.
-4. **Deploy**.
+### Real-time vs. Batch Processing
+- **Decision**: Hybrid Real-Time (Pusher) + SWR Background Refresh.
+- **Why**: Pre-computing everything ("Batch") can lead to stale data in high-freq stores. Pure real-time ("Pusher-only") is too noisy for high-volume aggregations. We use Pusher to trigger UI updates and SWR (Stale-While-Revalidate) to refresh the heavy metrics in the background.
+- **Trade-offs**: Sacrificed absolute millisecond-consistency for perceived speed and reduced server load. Gained a "snappy" feeling UI that never blocks on a loader.
 
-## �🛠️ Key Features
-- **Real-time Performance**: Measured live latency displayed on the dashboard dashboard.
-- **Multi-tenant Isolation**: Strict store-level data siloing via `x-store-id` headers.
-- **Optimized Queries**: Consolidated CTEs and SWR background refresh for sub-10ms response times.
-- **Responsive Design**: Premium "Command Center" layout optimized for both desktop and mobile views.
+### Frontend Data Fetching
+- **Decision**: Next.js 14 + SWR (Stale-While-Revalidate).
+- **Why**: SWR handles caching, revalidation, and optimistic UI out of the box. This ensures the dashboard feels instantaneous while data is updated in the background.
+- **Trade-offs**: More memory consumption on the client-side compared to simple fetch, but the UX improvement is night and day.
 
-## 🔑 Environment Variables
-See `.env.example` in the root or individual directories for:
-- `DATABASE_URL`: PostgreSQL connection string.
-- `PUSHER_APP_ID`, `PUSHER_KEY`, etc.: Pusher credentials for live updates.
-- `NEXT_PUBLIC_API_URL`: Backend endpoint (default: `http://localhost:3001/api/v1`).
+### Performance Optimizations
+- **Database Indexing**: Compound indexes on `(store_id, event_type, created_at)` to ensure aggregations are always index-scanned.
+- **Neon Serverless Optimization**: Used the Neon serverless driver to prevent connection bloat during spikes.
+- **TTL Caching**: Implemented a 10s TTL cache on analytics endpoints to prevent "DDoS-by-Refresh" and serve sub-10ms response times.
+
+## 🛑 Known Limitations
+- **Scaling to 100M+ events**: While optimized, a single PostgreSQL instance will eventually need partitioning (Time-scaleDB) for event storage.
+- **Cold Starts**: Vercel Serverless cold starts can add ~500ms to the first request of the day.
+
+## 🌟 What I'd Improve With More Time
+- **Clickstream Heatmaps**: Visualize exactly where customers are dropping off on the page via coordinate tracking.
+
+- **Automated Alerts**: Add a Discord/Slack webhook for when conversion rates drop below a threshold.
+
+## ⏱️ Time Spent
+- **Coding & Finalization**: 3.5 Hours
+- **Deployment & Scaling**: 20 Minutes
