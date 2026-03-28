@@ -38,7 +38,7 @@ export function Sidebar({ isOpen, onClose }: { isOpen?: boolean; onClose?: () =>
       <div className="flex-1 overflow-y-auto p-4 no-scrollbar">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-indigo-200">
+            <div className="w-9 h-9 rounded-xl bg-brand-500 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-brand-200">
               A
             </div>
             <span className="font-bold text-lg tracking-tight text-gray-900">Amboras</span>
@@ -58,14 +58,14 @@ export function Sidebar({ isOpen, onClose }: { isOpen?: boolean; onClose?: () =>
                   whileHover={{ x: 4 }}
                   className={cn(
                     "w-full flex items-center justify-between px-3 py-2 rounded-xl transition-all duration-200 cursor-pointer overflow-hidden",
-                    isActive ? "bg-indigo-50 text-indigo-700 font-bold" : "text-gray-500 hover:bg-gray-50 hover:text-gray-900"
+                    isActive ? "bg-brand-50 text-brand-700 font-bold" : "text-gray-500 hover:bg-gray-50 hover:text-gray-900"
                   )}
                 >
                   <div className="flex items-center gap-3">
-                    <item.icon size={18} className={cn(isActive ? "text-indigo-600" : "text-gray-400")} />
+                    <item.icon size={18} className={cn(isActive ? "text-brand-500" : "text-gray-400")} />
                     <span className="text-sm">{item.label}</span>
                   </div>
-                  {isActive && <div className="w-1.5 h-1.5 rounded-full bg-indigo-600 flex-shrink-0" />}
+                  {isActive && <div className="w-1.5 h-1.5 rounded-full bg-brand-500 flex-shrink-0" />}
                 </motion.div>
               </Link>
             );
@@ -76,10 +76,10 @@ export function Sidebar({ isOpen, onClose }: { isOpen?: boolean; onClose?: () =>
       <div className="p-4 space-y-3 bg-white border-t border-gray-50">
         <div className="bg-gray-50 rounded-2xl p-3 border border-gray-100">
           <div className="flex items-center gap-2 mb-1.5 text-gray-900 font-semibold text-[11px]">
-            <TrendingUp size={12} className="text-indigo-600" />
+            <TrendingUp size={12} className="text-brand-500" />
             <span>Pro Plan</span>
           </div>
-          <button className="w-full py-1.5 bg-indigo-600 text-white text-[10px] font-bold rounded-lg shadow-md hover:bg-indigo-700 transition-colors">
+          <button className="w-full py-1.5 bg-brand-500 text-white text-[10px] font-bold rounded-lg shadow-md hover:bg-brand-600 transition-colors">
             Upgrade
           </button>
         </div>
@@ -90,10 +90,10 @@ export function Sidebar({ isOpen, onClose }: { isOpen?: boolean; onClose?: () =>
               whileHover={{ x: 4 }}
               className={cn(
                 "w-full flex items-center gap-3 px-3 py-1.5 rounded-xl transition-all duration-200 cursor-pointer",
-                pathname === '/settings' ? "bg-indigo-50 text-indigo-700 font-bold" : "text-gray-500 hover:bg-gray-50 hover:text-gray-900"
+                pathname === '/settings' ? "bg-brand-50 text-brand-700 font-bold" : "text-gray-500 hover:bg-gray-50 hover:text-gray-900"
               )}
             >
-              <Settings size={16} className={cn(pathname === '/settings' ? "text-indigo-600" : "text-gray-400")} />
+              <Settings size={16} className={cn(pathname === '/settings' ? "text-brand-500" : "text-gray-400")} />
               <span className="text-sm">Settings</span>
             </motion.div>
           </Link>

@@ -49,22 +49,22 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFBFF] flex items-center justify-center p-4 selection:bg-indigo-100 selection:text-indigo-900">
+    <div className="min-h-screen bg-warm-bg flex items-center justify-center p-4 selection:bg-brand-100 selection:text-brand-900">
       <div className="w-full max-w-md">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="bg-white p-8 rounded-[32px] border border-gray-100 shadow-2xl shadow-indigo-100/20 overflow-hidden relative"
+          className="bg-white p-8 rounded-[32px] border border-gray-100 shadow-2xl shadow-brand-100/20 overflow-hidden relative"
         >
           {/* Decorative background element */}
-          <div className="absolute -top-24 -right-24 w-48 h-48 bg-indigo-50 rounded-full blur-3xl opacity-50" />
+          <div className="absolute -top-24 -right-24 w-48 h-48 bg-brand-50 rounded-full blur-3xl opacity-50" />
           
           <div className="text-center mb-10 relative">
             <motion.div
               variants={itemVariants}
               whileHover={{ rotate: 5, scale: 1.05 }}
-              className="w-20 h-20 bg-indigo-600 rounded-[24px] flex items-center justify-center text-white font-bold text-4xl mx-auto mb-6 shadow-xl shadow-indigo-200"
+              className="w-20 h-20 bg-brand-600 rounded-[24px] flex items-center justify-center text-white font-bold text-4xl mx-auto mb-6 shadow-xl shadow-brand-200"
             >
               A
             </motion.div>
@@ -80,14 +80,14 @@ export default function LoginPage() {
             <motion.div variants={itemVariants} className="space-y-2">
               <label className="text-[11px] font-bold text-gray-400 uppercase tracking-[0.15em] ml-1">Email Address</label>
               <div className="relative group">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-indigo-600 transition-colors" size={18} />
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-brand-600 transition-colors" size={18} />
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="amboras@demo.com"
                   required
-                  className="w-full pl-12 pr-4 py-4 bg-gray-50/50 border border-gray-100 rounded-2xl text-sm focus:outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-600 transition-all font-medium"
+                  className="w-full pl-12 pr-4 py-4 bg-gray-50/50 border border-gray-100 rounded-2xl text-sm focus:outline-none focus:ring-4 focus:ring-brand-500/10 focus:border-brand-600 transition-all font-medium"
                 />
               </div>
             </motion.div>
@@ -95,34 +95,34 @@ export default function LoginPage() {
             <motion.div variants={itemVariants} className="space-y-2">
               <label className="text-[11px] font-bold text-gray-400 uppercase tracking-[0.15em] ml-1">Password</label>
               <div className="relative group">
-                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-indigo-600 transition-colors" size={18} />
+                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-brand-600 transition-colors" size={18} />
                 <input
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
                   required
-                  className="w-full pl-12 pr-4 py-4 bg-gray-50/50 border border-gray-100 rounded-2xl text-sm focus:outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-600 transition-all font-medium"
+                  className="w-full pl-12 pr-4 py-4 bg-gray-50/50 border border-gray-100 rounded-2xl text-sm focus:outline-none focus:ring-4 focus:ring-brand-500/10 focus:border-brand-600 transition-all font-medium"
                 />
               </div>
             </motion.div>
 
             <motion.div
               variants={itemVariants}
-              className="p-4 bg-indigo-50/50 rounded-2xl border border-indigo-100/50 flex flex-col gap-2 relative overflow-hidden group"
+              className="p-4 bg-brand-50/50 rounded-2xl border border-brand-100/50 flex flex-col gap-2 relative overflow-hidden group"
             >
-              <div className="absolute top-0 right-0 p-2 text-indigo-200 group-hover:text-indigo-300 transition-colors">
+              <div className="absolute top-0 right-0 p-2 text-brand-200 group-hover:text-brand-300 transition-colors">
                  <Info size={14} />
               </div>
-              <p className="text-[10px] font-extrabold text-indigo-400 uppercase tracking-widest">Demo Credentials</p>
+              <p className="text-[10px] font-extrabold text-brand-400 uppercase tracking-widest">Demo Credentials</p>
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4">
                 <div className="flex items-center gap-1.5">
-                   <span className="text-[10px] font-bold text-indigo-300 uppercase">Email:</span>
-                   <span className="text-xs font-bold text-indigo-900/70">amboras@demo.com</span>
+                   <span className="text-[10px] font-bold text-brand-300 uppercase">Email:</span>
+                   <span className="text-xs font-bold text-brand-900/70">amboras@demo.com</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                   <span className="text-[10px] font-bold text-indigo-300 uppercase">Pass:</span>
-                   <span className="text-xs font-bold text-indigo-900/70">demo</span>
+                   <span className="text-[10px] font-bold text-brand-300 uppercase">Pass:</span>
+                   <span className="text-xs font-bold text-brand-900/70">demo</span>
                 </div>
               </div>
             </motion.div>
@@ -144,7 +144,7 @@ export default function LoginPage() {
               type="submit"
               disabled={isLoading}
               className={cn(
-                "w-full py-4 bg-indigo-600 text-white font-bold rounded-2xl hover:bg-indigo-700 active:bg-indigo-800 transition-all shadow-xl shadow-indigo-100 flex items-center justify-center gap-2 group",
+                "w-full py-4 bg-brand-600 text-white font-bold rounded-2xl hover:bg-brand-700 active:bg-brand-800 transition-all shadow-xl shadow-brand-100 flex items-center justify-center gap-2 group",
                 isLoading && "opacity-70 cursor-not-allowed"
               )}
             >
@@ -159,7 +159,7 @@ export default function LoginPage() {
           </form>
 
           <motion.p variants={itemVariants} className="text-center mt-10 text-[11px] font-bold text-gray-400 uppercase tracking-[0.1em]">
-             New here? <span className="text-indigo-600 cursor-pointer hover:text-indigo-700 underline underline-offset-4 decoration-indigo-200 hover:decoration-indigo-600 transition-all">Request Dashboard Access</span>
+             New here? <span className="text-brand-600 cursor-pointer hover:text-brand-700 underline underline-offset-4 decoration-brand-200 hover:decoration-brand-600 transition-all">Request Dashboard Access</span>
           </motion.p>
         </motion.div>
 

@@ -49,13 +49,13 @@ export default function LiveEventsPage() {
                </div>
             </div>
 
-            <div className="bg-indigo-600 p-6 rounded-3xl text-white shadow-xl shadow-indigo-100">
+            <div className="bg-brand-600 p-6 rounded-3xl text-white shadow-xl shadow-brand-100">
                <Target size={24} className="mb-4 opacity-50" />
                <h4 className="font-bold mb-2">Advanced Filtering</h4>
-               <p className="text-xs text-indigo-100 opacity-80 leading-relaxed mb-4">
+               <p className="text-xs text-brand-100 opacity-80 leading-relaxed mb-4">
                  Filter events by custom parameters, user agents, and geolocation in the Pro version.
                </p>
-               <button className="w-full py-2.5 bg-white text-indigo-600 text-xs font-bold rounded-xl hover:bg-indigo-50 transition-colors">
+               <button className="w-full py-2.5 bg-white text-brand-600 text-xs font-bold rounded-xl hover:bg-brand-50 transition-colors">
                  Learn More
                </button>
             </div>

@@ -31,11 +31,11 @@ export default function ProductsPage() {
               key={product.name}
               className="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow group"
             >
-              <div className="w-12 h-12 rounded-2xl bg-indigo-50 flex items-center justify-center text-indigo-600 mb-4 group-hover:scale-110 transition-transform">
+              <div className="w-12 h-12 rounded-2xl bg-brand-50 flex items-center justify-center text-brand-600 mb-4 group-hover:scale-110 transition-transform">
                 <Package size={24} />
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-1">{product.name}</h3>
-              <p className="text-sm font-bold text-indigo-600 mb-4">${product.price.toFixed(2)}</p>
+              <p className="text-sm font-bold text-brand-600 mb-4">${product.price.toFixed(2)}</p>
               
               <div className="space-y-3 pt-4 border-t border-gray-50">
                 <div className="flex items-center justify-between">

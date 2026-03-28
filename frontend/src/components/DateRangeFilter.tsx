@@ -64,7 +64,7 @@ export function DateRangeFilter({ onRangeChange }: DateRangeFilterProps) {
             )}
           >
             {active === idx && !showCustom && (
-              <motion.div layoutId="active-date" className="absolute inset-0 bg-indigo-600 rounded-xl" style={{ zIndex: 0 }} />
+              <motion.div layoutId="active-date" className="absolute inset-0 bg-brand-600 rounded-xl" style={{ zIndex: 0 }} />
             )}
             <span className="relative z-10">{preset.label}</span>
           </button>
@@ -76,11 +76,11 @@ export function DateRangeFilter({ onRangeChange }: DateRangeFilterProps) {
           onClick={() => setShowCustom(!showCustom)}
           className={cn(
             "px-3 py-2 rounded-xl transition-all relative",
-            showCustom ? "text-white" : "text-gray-400 hover:text-indigo-600"
+            showCustom ? "text-white" : "text-gray-400 hover:text-brand-600"
           )}
         >
           {showCustom && (
-            <motion.div layoutId="active-date" className="absolute inset-0 bg-indigo-600 rounded-xl" style={{ zIndex: 0 }} />
+            <motion.div layoutId="active-date" className="absolute inset-0 bg-brand-600 rounded-xl" style={{ zIndex: 0 }} />
           )}
           <Calendar size={16} className="relative z-10" />
         </button>
@@ -92,7 +92,7 @@ export function DateRangeFilter({ onRangeChange }: DateRangeFilterProps) {
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            className="absolute top-full right-0 mt-3 z-[100] bg-white p-4 rounded-3xl border border-gray-100 shadow-2xl shadow-indigo-100/50 min-w-[280px]"
+            className="absolute top-full right-0 mt-3 z-[100] bg-white p-4 rounded-3xl border border-gray-100 shadow-2xl shadow-brand-100/50 min-w-[280px]"
           >
             <div className="flex items-center justify-between mb-4">
               <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Select Custom Range</span>
@@ -112,7 +112,7 @@ export function DateRangeFilter({ onRangeChange }: DateRangeFilterProps) {
                   name="start"
                   value={customRange.start}
                   onChange={handleCustomChange}
-                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-100 rounded-xl text-xs font-bold text-gray-900 outline-none focus:border-indigo-200 transition-colors"
+                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-100 rounded-xl text-xs font-bold text-gray-900 outline-none focus:border-brand-200 transition-colors"
                 />
               </div>
               <div className="space-y-1.5">
@@ -122,7 +122,7 @@ export function DateRangeFilter({ onRangeChange }: DateRangeFilterProps) {
                   name="end"
                   value={customRange.end}
                   onChange={handleCustomChange}
-                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-100 rounded-xl text-xs font-bold text-gray-900 outline-none focus:border-indigo-200 transition-colors"
+                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-100 rounded-xl text-xs font-bold text-gray-900 outline-none focus:border-brand-200 transition-colors"
                 />
               </div>
             </div>
@@ -130,7 +130,7 @@ export function DateRangeFilter({ onRangeChange }: DateRangeFilterProps) {
             <div className="mt-4 pt-4 border-t border-gray-50">
                <button 
                  onClick={applyCustomFilter}
-                 className="w-full py-2.5 bg-indigo-600 text-white text-[10px] font-bold uppercase tracking-widest rounded-xl shadow-lg shadow-indigo-100 hover:bg-indigo-700 transition-colors"
+                 className="w-full py-2.5 bg-brand-600 text-white text-[10px] font-bold uppercase tracking-widest rounded-xl shadow-lg shadow-brand-100 hover:bg-brand-700 transition-colors"
                >
                  Apply Filter
                </button>

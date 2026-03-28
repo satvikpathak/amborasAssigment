@@ -15,11 +15,12 @@ async function setup() {
   
   try {
     const schema = fs.readFileSync(path.join(__dirname, 'schema.sql'), 'utf8');
-    // Neon expects tagged template or query calls.
-    // We'll split the schema into individual statements if necessary, 
-    // but Neon's tagged template handles multifarious statements in some configurations.
-    // For safety with serverless, we'll execute the raw string.
-    await sql(schema);
+    // Neon 1.0+ .query() does not support multiple commands in one string.
+    // We must split by ';' and execute them one by one.
+    const statements = schema.split(';').filter(s => s.trim());
+    for (const statement of statements) {
+      await sql.query(statement);
+    }
     console.log('✅ Schema created successfully.');
 
     console.log('🌱 Seeding sample stores and events...');

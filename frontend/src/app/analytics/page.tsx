@@ -7,7 +7,7 @@ import { DashboardLayout } from '@/components/DashboardLayout';
 import { cn } from '@/lib/utils';
 
 const ANALYTICS_CARDS = [
-  { title: 'Customer Lifetime Value', value: '$840.50', trend: 8.4, icon: Target, color: 'text-indigo-600' },
+  { title: 'Customer Lifetime Value', value: '$840.50', trend: 8.4, icon: Target, color: 'text-brand-600' },
   { title: 'Repeat Purchase Rate', value: '24.2%', trend: 1.2, icon: TrendingUp, color: 'text-emerald-600' },
   { title: 'Average Order Value', value: '$112.40', trend: -2.4, icon: BarChart3, color: 'text-amber-600' },
   { title: 'Cart Abandonment', value: '64.2%', trend: -5.1, icon: PieChart, color: 'text-rose-600' },
@@ -55,7 +55,7 @@ export default function AnalyticsPage() {
               </div>
               <h4 className="font-bold text-gray-900 mb-2">Customer Segmentation</h4>
               <p className="text-sm text-gray-500 max-w-xs mb-6">Gain insights into user behavior and segment your audience for targeted marketing.</p>
-              <button className="px-6 py-2.5 bg-indigo-600 text-white text-[11px] font-bold rounded-xl hover:bg-indigo-700 transition-colors">
+              <button className="px-6 py-2.5 bg-brand-600 text-white text-[11px] font-bold rounded-xl hover:bg-brand-700 transition-colors">
                 Enable Insights
               </button>
            </div>
@@ -66,7 +66,7 @@ export default function AnalyticsPage() {
               </div>
               <h4 className="font-bold text-gray-900 mb-2">Predictive Forecasting</h4>
               <p className="text-sm text-gray-500 max-w-xs mb-6">AI-driven sales projections for the next 30, 60, and 90 days based on historical data.</p>
-              <button className="px-6 py-2.5 bg-indigo-600 text-white text-[11px] font-bold rounded-xl hover:bg-indigo-700 transition-colors">
+              <button className="px-6 py-2.5 bg-brand-600 text-white text-[11px] font-bold rounded-xl hover:bg-brand-700 transition-colors">
                 View Forecasts
               </button>
            </div>

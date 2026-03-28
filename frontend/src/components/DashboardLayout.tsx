@@ -22,13 +22,13 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
   if (!isAuthorized) {
     return (
       <div className="min-h-screen bg-[#FAFBFF] flex items-center justify-center">
-        <div className="w-10 h-10 border-4 border-indigo-600/20 border-t-indigo-600 rounded-full animate-spin" />
+        <div className="w-10 h-10 border-4 border-brand-600/20 border-t-brand-600 rounded-full animate-spin" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#FAFBFF] flex">
+    <div className="min-h-screen bg-warm-bg flex">
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       
       <div className="flex-1 lg:ml-60 flex flex-col min-h-screen overflow-y-auto">

@@ -52,7 +52,7 @@ export default function CustomersPage() {
                   >
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 rounded-2xl bg-indigo-50 flex items-center justify-center text-indigo-600 font-bold text-xs ring-1 ring-inset ring-indigo-100">
+                        <div className="w-9 h-9 rounded-2xl bg-brand-50 flex items-center justify-center text-brand-600 font-bold text-xs ring-1 ring-inset ring-brand-100">
                           {customer.name.split(' ').map(n => n[0]).join('')}
                         </div>
                         <div className="space-y-0.5">

@@ -16,7 +16,7 @@ const ORDERS = [
 
 const STATUS_CONFIG = {
   'Delivered': { icon: CheckCircle2, color: 'text-emerald-600', bg: 'bg-emerald-50' },
-  'Shipped': { icon: Truck, color: 'text-indigo-600', bg: 'bg-indigo-50' },
+  'Shipped': { icon: Truck, color: 'text-brand-600', bg: 'bg-brand-50' },
   'Processing': { icon: Clock, color: 'text-amber-600', bg: 'bg-amber-50' },
 };
 
@@ -63,7 +63,7 @@ export default function OrdersPage() {
                       </td>
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center text-[10px] font-bold text-indigo-600">
+                          <div className="w-8 h-8 rounded-full bg-brand-50 flex items-center justify-center text-[10px] font-bold text-brand-600">
                             {order.customer.split(' ').map(n => n[0]).join('')}
                           </div>
                           <span className="text-sm font-medium text-gray-600">{order.customer}</span>
@@ -88,7 +88,7 @@ export default function OrdersPage() {
             </table>
           </div>
           <div className="p-4 bg-gray-50/30 text-center">
-            <button className="text-[11px] font-bold text-indigo-600 uppercase tracking-widest hover:text-indigo-700 transition-colors">
+            <button className="text-[11px] font-bold text-brand-600 uppercase tracking-widest hover:text-brand-700 transition-colors">
               View All Orders
             </button>
           </div>

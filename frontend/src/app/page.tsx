@@ -89,7 +89,7 @@ export default function DashboardPage() {
           <p className="text-gray-500 text-sm mb-6">Failed to load analytics data. Please check your network connection or store configuration.</p>
           <button 
             onClick={() => window.location.reload()}
-            className="w-full py-3 bg-indigo-600 text-white font-bold rounded-2xl hover:bg-indigo-700 transition-colors"
+            className="w-full py-3 bg-brand-600 text-white font-bold rounded-2xl hover:bg-brand-700 transition-colors"
           >
             Retry Connection
           </button>
@@ -168,22 +168,22 @@ export default function DashboardPage() {
               </div>
               
               {/* Promo Banner */}
-              <div className="bg-indigo-600 rounded-3xl p-6 text-white relative overflow-hidden group border border-indigo-500/20 shadow-xl shadow-indigo-100">
+              <div className="bg-brand-600 rounded-3xl p-6 text-white relative overflow-hidden group border border-brand-500/20 shadow-xl shadow-brand-100">
                  <div className="relative z-10 flex items-center justify-between">
                    <div className="max-w-md text-center md:text-left">
                      <h3 className="text-lg font-bold mb-1">Automate insights</h3>
-                     <p className="text-indigo-100 text-[11px] opacity-90 leading-relaxed mb-4">
+                     <p className="text-brand-100 text-[11px] opacity-90 leading-relaxed mb-4">
                        Sync your store with our AI engine.
                      </p>
-                     <button className="flex items-center gap-2 px-4 py-2 bg-white text-indigo-600 text-[11px] font-bold rounded-xl hover:bg-indigo-50 transition-colors mx-auto md:mx-0">
+                     <button className="flex items-center gap-2 px-4 py-2 bg-white text-brand-600 text-[11px] font-bold rounded-xl hover:bg-brand-50 transition-all mx-auto md:mx-0 brand-glow-hover">
                         Connect Store <ArrowRight size={14} />
                      </button>
                    </div>
                    <div className="hidden md:block">
-                      <Activity size={80} className="text-indigo-500/30 opacity-50" />
+                      <Activity size={80} className="text-brand-500/30 opacity-50" />
                    </div>
                  </div>
-                 <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-indigo-400/20 rounded-full blur-3xl pointer-events-none" />
+                 <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-brand-400/20 rounded-full blur-3xl pointer-events-none" />
               </div>
             </div>
 

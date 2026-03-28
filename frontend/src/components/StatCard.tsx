@@ -26,7 +26,7 @@ export function StatCard({
   trend, 
   subtitle, 
   className,
-  iconColor = "text-indigo-600",
+  iconColor = "text-brand-600",
   index = 0
 }: StatCardProps) {
   return (

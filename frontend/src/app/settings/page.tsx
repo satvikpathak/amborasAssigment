@@ -51,7 +51,7 @@ export default function SettingsPage() {
               className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden"
             >
               <div className="p-6 border-b border-gray-50 flex items-center gap-3">
-                 <div className="p-2 bg-indigo-50 rounded-xl text-indigo-600">
+                 <div className="p-2 bg-brand-50 rounded-xl text-brand-600">
                     <section.icon size={20} />
                  </div>
                  <h3 className="font-bold text-gray-900">{section.title}</h3>
@@ -59,7 +59,7 @@ export default function SettingsPage() {
               <div className="divide-y divide-gray-50">
                 {section.items.map((item) => (
                   <button key={item.label} className="w-full p-6 flex flex-col items-start hover:bg-gray-50/50 transition-colors text-left group">
-                    <p className="font-bold text-sm text-gray-900 mb-1 group-hover:text-indigo-600 transition-colors">{item.label}</p>
+                    <p className="font-bold text-sm text-gray-900 mb-1 group-hover:text-brand-600 transition-colors">{item.label}</p>
                     <p className="text-[11px] text-gray-400 font-medium uppercase tracking-tight">{item.description}</p>
                   </button>
                 ))}
@@ -72,7 +72,7 @@ export default function SettingsPage() {
            <button className="px-6 py-2.5 text-sm font-bold text-gray-400 hover:text-gray-900 transition-colors">
               Reset Changes
            </button>
-           <button className="px-6 py-2.5 bg-indigo-600 text-white text-sm font-bold rounded-2xl hover:bg-indigo-700 transition-colors flex items-center gap-2 shadow-xl shadow-indigo-100">
+           <button className="px-6 py-2.5 bg-brand-600 text-white text-sm font-bold rounded-2xl hover:bg-brand-700 transition-colors flex items-center gap-2 shadow-xl shadow-brand-100">
               <Save size={18} /> Save Changes
            </button>
         </div>
