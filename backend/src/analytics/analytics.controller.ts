@@ -1,9 +1,4 @@
-import {
-  Controller,
-  Get,
-  Query,
-  UseGuards,
-} from '@nestjs/common';
+import { Controller, Get, Query, UseGuards } from '@nestjs/common';
 import { AnalyticsService } from './analytics.service';
 import { StoreGuard } from '../common/guards/store.guard';
 import { StoreId } from '../common/decorators/store-id.decorator';
@@ -19,11 +14,7 @@ export class AnalyticsController {
     @Query('startDate') startDate?: string,
     @Query('endDate') endDate?: string,
   ) {
-    return this.analyticsService.getOverview(
-      storeId,
-      startDate,
-      endDate,
-    );
+    return this.analyticsService.getOverview(storeId, startDate, endDate);
   }
 
   @Get('top-products')

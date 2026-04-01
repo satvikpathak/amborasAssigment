@@ -4,7 +4,7 @@ require('dotenv').config({ path: [path.join(__dirname, '.env'), path.join(__dirn
 const STORES = ['store_001', 'store_002', 'store_003'];
 const API_BASE = process.env.API_URL 
   ? process.env.API_URL.replace('/events', '') // Convert simulator endpoint to base API
-  : 'https://amboras-assigment-6bwmkq5u8-satvik-pathaks-projects.vercel.app/api/v1';
+  : 'https://eCom-assigment-6bwmkq5u8-satvik-pathaks-projects.vercel.app/api/v1';
 
 async function testEndpoint(storeId, endpoint) {
   const url = `${API_BASE}/analytics/${endpoint}`;

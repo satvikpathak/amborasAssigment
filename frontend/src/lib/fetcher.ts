@@ -7,7 +7,7 @@ export interface FetchResponse<T> {
 
 export async function fetcher<T>(args: string | [string, string]): Promise<FetchResponse<T>> {
   const url = typeof args === 'string' ? args : args[0];
-  const storeId = typeof args === 'string' ? (localStorage.getItem('amboras_store_id') || 'store_001') : args[1];
+  const storeId = typeof args === 'string' ? (localStorage.getItem('eCom_store_id') || 'store_001') : args[1];
 
   const start = performance.now();
   

@@ -41,7 +41,7 @@ export function Sidebar({ isOpen, onClose }: { isOpen?: boolean; onClose?: () =>
             <div className="w-9 h-9 rounded-xl bg-brand-500 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-brand-200">
               A
             </div>
-            <span className="font-bold text-lg tracking-tight text-gray-900">Amboras</span>
+            <span className="font-bold text-lg tracking-tight text-gray-900">eCom</span>
           </div>
           <button onClick={onClose} className="lg:hidden p-2 text-gray-400 hover:text-gray-900 transition-colors">
             <X size={20} />
@@ -99,7 +99,7 @@ export function Sidebar({ isOpen, onClose }: { isOpen?: boolean; onClose?: () =>
           </Link>
           <button 
             onClick={() => {
-              localStorage.removeItem('amboras_token');
+              localStorage.removeItem('eCom_token');
               window.location.href = '/login';
             }}
             className="w-full flex items-center gap-3 px-3 py-1.5 text-rose-600 hover:bg-rose-50 rounded-xl transition-all group"

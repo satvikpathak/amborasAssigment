@@ -8,7 +8,8 @@ import type Pusher from 'pusher';
 @Injectable()
 export class EventsService {
   constructor(
-    @Inject(DATABASE_CONNECTION) private readonly sql: NeonQueryFunction<false, false>,
+    @Inject(DATABASE_CONNECTION)
+    private readonly sql: NeonQueryFunction<false, false>,
     @Inject(PUSHER_CLIENT) private readonly pusher: Pusher | null,
   ) {}
 

@@ -16,7 +16,9 @@ export const PUSHER_CLIENT = 'PUSHER_CLIENT';
         const cluster = configService.get<string>('PUSHER_CLUSTER', 'us2');
 
         if (!appId || !key || !secret) {
-          console.warn('⚠️  Pusher not fully configured — real-time features disabled');
+          console.warn(
+            '⚠️  Pusher not fully configured — real-time features disabled',
+          );
           return null;
         }
 

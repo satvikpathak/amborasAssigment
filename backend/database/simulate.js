@@ -47,7 +47,7 @@ async function sendEvent() {
     console.log(`🚀 [SIM] Sending ${eventType} for ${storeId}...`);
     
     // Using global fetch if available (Node 18+)
-    const apiUrl = process.env.API_URL || 'https://amboras-assigment-6bwmkq5u8-satvik-pathaks-projects.vercel.app/api/v1/events';
+    const apiUrl = process.env.API_URL || 'https://eCom-assigment-6bwmkq5u8-satvik-pathaks-projects.vercel.app/api/v1/events';
     
     const response = await fetch(apiUrl, {
       method: 'POST',

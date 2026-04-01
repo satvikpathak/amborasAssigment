@@ -11,7 +11,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
   const [isAuthorized, setIsAuthorized] = useState(false);
 
   useEffect(() => {
-    const token = typeof window !== 'undefined' ? localStorage.getItem('amboras_token') : null;
+    const token = typeof window !== 'undefined' ? localStorage.getItem('eCom_token') : null;
     if (!token) {
       router.push('/login');
     } else {

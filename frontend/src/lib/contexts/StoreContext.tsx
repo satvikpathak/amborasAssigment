@@ -15,7 +15,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const savedStore = localStorage.getItem('amboras_store_id');
+    const savedStore = localStorage.getItem('eCom_store_id');
     if (savedStore) {
       setStoreIdState(savedStore);
     }
@@ -24,7 +24,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
 
   const setStoreId = (id: string) => {
     setStoreIdState(id);
-    localStorage.setItem('amboras_store_id', id);
+    localStorage.setItem('eCom_store_id', id);
   };
 
   return (

@@ -38,8 +38,8 @@ export default function LoginPage() {
 
     // Simulate network delay
     setTimeout(() => {
-      if (email === 'amboras@demo.com' && password === 'demo') {
-        localStorage.setItem('amboras_token', 'mock_token_123');
+      if (email === 'eCom@demo.com' && password === 'demo') {
+        localStorage.setItem('eCom_token', 'mock_token_123');
         router.push('/');
       } else {
         setError('Invalid credentials. Check the demo info below.');
@@ -69,7 +69,7 @@ export default function LoginPage() {
               A
             </motion.div>
             <motion.h1 variants={itemVariants} className="text-3xl font-extrabold text-gray-900 tracking-tight">
-              Amboras Analytics
+              eCom Analytics
             </motion.h1>
             <motion.p variants={itemVariants} className="text-sm font-medium text-gray-400 mt-2">
               The Command Center for your eCommerce Store
@@ -85,7 +85,7 @@ export default function LoginPage() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="amboras@demo.com"
+                  placeholder="eCom@demo.com"
                   required
                   className="w-full pl-12 pr-4 py-4 bg-gray-50/50 border border-gray-100 rounded-2xl text-sm focus:outline-none focus:ring-4 focus:ring-brand-500/10 focus:border-brand-600 transition-all font-medium"
                 />
@@ -118,7 +118,7 @@ export default function LoginPage() {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4">
                 <div className="flex items-center gap-1.5">
                    <span className="text-[10px] font-bold text-brand-300 uppercase">Email:</span>
-                   <span className="text-xs font-bold text-brand-900/70">amboras@demo.com</span>
+                   <span className="text-xs font-bold text-brand-900/70">eCom@demo.com</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                    <span className="text-[10px] font-bold text-brand-300 uppercase">Pass:</span>
@@ -169,7 +169,7 @@ export default function LoginPage() {
           transition={{ delay: 1 }}
           className="text-center text-[10px] text-gray-400 mt-10 font-bold uppercase tracking-widest opacity-60"
         >
-          &copy; 2026 Amboras Powered By Enterprise AI
+          &copy; 2026 eCom Powered By Enterprise AI
         </motion.p>
       </div>
     </div>

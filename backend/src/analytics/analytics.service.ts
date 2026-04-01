@@ -9,23 +9,26 @@ export class AnalyticsService {
   private STALE_TTL = 60000; // 60 seconds "stale" window (return stale + refresh bg)
 
   constructor(
-    @Inject(DATABASE_CONNECTION) private readonly sql: NeonQueryFunction<false, false>,
+    @Inject(DATABASE_CONNECTION)
+    private readonly sql: NeonQueryFunction<false, false>,
   ) {}
 
   async getOverview(storeId: string, startDate?: string, endDate?: string) {
     const cacheKey = `${storeId}-${startDate || 'default'}-${endDate || 'default'}`;
     const cached = this.cache.get(cacheKey);
     const nowTime = Date.now();
-    
+
     // 1. Fresh Hit: return immediately (< 50ms)
-    if (cached && (nowTime - cached.timestamp < this.CACHE_TTL)) {
+    if (cached && nowTime - cached.timestamp < this.CACHE_TTL) {
       return cached.data;
     }
 
     // 2. Stale Hit: return stale immediately AND refresh in background
-    if (cached && (nowTime - cached.timestamp < this.STALE_TTL)) {
+    if (cached && nowTime - cached.timestamp < this.STALE_TTL) {
       // Trigger background refresh without awaiting
-      this.refreshOverview(cacheKey, storeId, startDate, endDate).catch(console.error);
+      this.refreshOverview(cacheKey, storeId, startDate, endDate).catch(
+        console.error,
+      );
       return cached.data;
     }
 
@@ -33,11 +36,28 @@ export class AnalyticsService {
     return this.refreshOverview(cacheKey, storeId, startDate, endDate);
   }
 
-  private async refreshOverview(cacheKey: string, storeId: string, startDate?: string, endDate?: string) {
+  private async refreshOverview(
+    cacheKey: string,
+    storeId: string,
+    startDate?: string,
+    endDate?: string,
+  ) {
     const now = new Date();
-    const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString();
-    const weekStart = new Date(now.getFullYear(), now.getMonth(), now.getDate() - now.getDay()).toISOString();
-    const monthStart = new Date(now.getFullYear(), now.getMonth(), 1).toISOString();
+    const todayStart = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate(),
+    ).toISOString();
+    const weekStart = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate() - now.getDay(),
+    ).toISOString();
+    const monthStart = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      1,
+    ).toISOString();
     const nowISO = now.toISOString();
 
     const rangeStart = startDate || monthStart;
@@ -89,7 +109,10 @@ export class AnalyticsService {
 
     const revenue = summary.revenue || { today: 0, week: 0, month: 0 };
     const conv = summary.conversion || { purchases: 0, page_views: 0 };
-    const conversionRate = conv.page_views > 0 ? ((conv.purchases / conv.page_views) * 100).toFixed(2) : '0.00';
+    const conversionRate =
+      conv.page_views > 0
+        ? ((conv.purchases / conv.page_views) * 100).toFixed(2)
+        : '0.00';
 
     const result = {
       revenue: {
@@ -111,11 +134,11 @@ export class AnalyticsService {
     const cached = this.cache.get(cacheKey);
     const nowTime = Date.now();
 
-    if (cached && (nowTime - cached.timestamp < this.CACHE_TTL)) {
+    if (cached && nowTime - cached.timestamp < this.CACHE_TTL) {
       return cached.data;
     }
 
-    if (cached && (nowTime - cached.timestamp < this.STALE_TTL)) {
+    if (cached && nowTime - cached.timestamp < this.STALE_TTL) {
       this.refreshTopProducts(cacheKey, storeId).catch(console.error);
       return cached.data;
     }
@@ -162,7 +185,7 @@ export class AnalyticsService {
     const cacheKey = `live-visitors-${storeId}`;
     const LIVE_TTL = 2000;
     const cached = this.cache.get(cacheKey);
-    
+
     if (cached && Date.now() - cached.timestamp < LIVE_TTL) {
       return cached.data;
     }

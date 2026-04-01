@@ -8,7 +8,13 @@ export class CreateEventDto {
   store_id: string;
 
   @IsString()
-  @IsIn(['page_view', 'add_to_cart', 'remove_from_cart', 'checkout_started', 'purchase'])
+  @IsIn([
+    'page_view',
+    'add_to_cart',
+    'remove_from_cart',
+    'checkout_started',
+    'purchase',
+  ])
   event_type: string;
 
   @IsOptional()

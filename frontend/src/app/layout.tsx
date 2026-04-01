@@ -3,8 +3,8 @@ import './globals.css';
 import { StoreProvider } from '@/lib/contexts/StoreContext';
 
 export const metadata: Metadata = {
-  title: 'Amboras Analytics | Store Dashboard',
-  description: 'Real-time eCommerce analytics dashboard for Amboras stores',
+  title: 'eCom Analytics | Store Dashboard',
+  description: 'Real-time eCommerce analytics dashboard for eCom stores',
 };
 
 export default function RootLayout({

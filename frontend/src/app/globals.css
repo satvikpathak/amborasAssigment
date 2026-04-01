@@ -5,14 +5,14 @@
 @tailwind utilities;
 
 :root {
-  --bg-main: #FDFCFB; /* Warm, premium off-white from Amboras.com */
+  --bg-main: #FDFCFB; /* Warm, premium off-white from eCom.com */
   --bg-card: #ffffff;
   --bg-sidebar: #ffffff;
-  --text-primary: #020617; /* Deep Navy/Black from Amboras.com */
+  --text-primary: #020617; /* Deep Navy/Black from eCom.com */
   --text-secondary: #4b5563;
   --text-muted: #9ca3af;
   --border-subtle: #F1EFED; /* Warmer border contrast */
-  --accent-primary: #005BB7; /* Official Amboras Brand Blue */
+  --accent-primary: #005BB7; /* Official eCom Brand Blue */
   --accent-secondary: #004B99;
   --success: #10b981;
   --warning: #F0652F; /* Amber/YC Badge Accent */

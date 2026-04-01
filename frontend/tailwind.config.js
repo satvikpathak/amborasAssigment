@@ -12,7 +12,7 @@ module.exports = {
           200: '#B8DFFF',
           300: '#7CC2FF',
           400: '#389FFF',
-          500: '#005BB7', // Official Amboras Deep Blue
+          500: '#005BB7', // Official eCom Deep Blue
           600: '#0052A3',
           700: '#004385',
           800: '#00366B',
